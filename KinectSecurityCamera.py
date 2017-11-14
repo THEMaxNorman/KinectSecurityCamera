@@ -15,13 +15,13 @@ def get_video():
     array, _ = freenect.sync_get_video()
     array = cv2.cvtColor(array, cv2.COLOR_RGB2BGR)
     return array
-
+WARNING_NOISE = 'warning.mp3'
 BASELINE_DEPTH = 80
 #should be set to whatever value doesnt trigger the door opening
 # function to get depth image from kinect
 def get_depth(count):
 
-    song = pyglet.media.load('Warning2.m4a')
+    song = pyglet.media.load(WARNING_NOISE)
     array, _ = freenect.sync_get_depth()
     array = array.astype(np.uint8)
     checker = 0
